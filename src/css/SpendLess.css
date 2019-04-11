@@ -1,0 +1,131 @@
+section.spend-less {
+  border: 1px solid #04586B;
+}
+header.c.spend-less {
+  background: #04586B;
+  color: #fff;
+  padding: 1rem;
+  margin: 0 0 2rem 0;
+}
+header.c.spend-less h1 {
+  margin: 0;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.c.spend-less.intro.text {
+  margin: 2rem;
+  overflow: auto;
+}
+.c.spend-less.intro.text p {
+  margin: 0;
+}
+.c.spend-less.form {
+  margin: 2rem;
+}
+.c.spend-less.form .range {
+  margin: 2rem 0;
+  overflow: hidden;
+}
+.c.spend-less.form .range > label {
+  float: left;
+  width: 30%;
+  font-weight: bold;
+}
+.c.spend-less.form .range > div {
+  position: relative;
+  float: left;
+  width: 70%;
+}
+.c.spend-less.form output {
+  margin: 2rem 0;
+  font-weight: bold;
+}
+.c.spend-less.form output span {
+  color: #69B800;
+}
+
+
+
+.c.spend-less.form .range input[type="range"] {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 4px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  .c.spend-less.form .range input[type="range"]:hover {
+    opacity: 1;
+  }
+  
+  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+  .c.spend-less.form .range input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px; 
+    border-radius: 18px;
+    border: none;
+    background: #04586B;
+    cursor: pointer;
+  }
+  
+  .c.spend-less.form .range input[type="range"]::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 18px;
+    border: none;
+    background: #04586B;
+    cursor: pointer;
+  }
+
+  .c.spend-less.link {
+    margin: 2rem;
+    text-align: center;
+  }
+  .c.spend-less.link a {
+    border: 1px solid #69B800;
+    border-radius: .5rem;
+    color: #69B800;
+    font-weight: bold;
+    display: inline-block;
+    padding: 1rem 3rem;
+    min-width: 70%;
+  }
+
+  
+  .c.spend-less.feedback {
+    margin: -2rem 2rem 2rem 2rem;
+    text-align: right;
+  }
+
+  .c.spend-less.feedback a {
+    height: 4.5rem;
+    margin-left: 1rem;
+  }
+  .c.spend-less.feedback a span {
+    display: none;
+  }
+  .c.spend-less.feedback a.answer {
+    display: inline-block;
+    height: 4.5rem;
+    width: 4.5rem;
+    background: url(../yesnomaybe.jpg) no-repeat;
+    background-size: 370%;
+    position: relative;
+    top: 1.5rem;
+  }
+  .c.spend-less.feedback a.answer.yes {
+    background-position:  -.8rem -2.5rem;
+
+  }
+  .c.spend-less.feedback a.answer.no {
+    background-position:  -11.7rem -2.5rem;
+  }

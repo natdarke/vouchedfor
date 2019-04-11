@@ -1,0 +1,182 @@
+@media all and (min-width: 0) {
+    @font-face {
+        font-family: "Open Sans";
+        src: url("../fonts/OpenSans-Regular.ttf");
+        font-weight: normal;
+    }
+    @font-face {
+        font-family: "Open Sans";
+        src: url("../fonts/OpenSans-Bold.ttf");
+        font-weight: bold;
+    }
+    @font-face {
+        font-family: "Open Sans";
+        src: url("../fonts/OpenSans-Italic.ttf");
+        font-weight: normal;
+        font-style: italic;
+    }
+    @font-face {
+        font-family: "Open Sans";
+        src: url("../fonts/OpenSans-BoldItalic.ttf");
+        font-weight: bold;
+        font-style: italic;
+    }
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+    }
+    img, video {
+        background: #ccc;
+        display: block;
+        width: 100%;
+    }
+    div {
+        box-sizing: border-box;
+        position: relative;
+    }
+    p {
+        margin: 1rem 0;
+        -webkit-column-break-inside: avoid; /* Chrome, Safari */
+        page-break-inside: avoid;           /* Theoretically FF 20+ */
+        break-inside: avoid-column;         /* IE 11 */
+    }
+    li {
+        -webkit-column-break-inside: avoid; /* Chrome, Safari */
+        page-break-inside: avoid;           /* Theoretically FF 20+ */
+        break-inside: avoid-column;         /* IE 11 */
+    }
+    p:first-child {
+        margin-top: 0;
+    }
+    p:last-child {
+        margin-bottom: 0;
+    }
+    html {
+        font-size: 62.5%;
+    }
+    
+    body {
+        line-height: 1.5;
+        font-size: 1.4rem;
+        font-family: 'Open Sans', sans-serif;
+        color: #04586B;
+        background: #fff;
+    
+    }	
+    .s h1 {
+        font-weight: normal;
+        font-size: 3rem;
+        line-height: 1.1;
+    }
+    .s .s h1 {
+        font-size: 2rem;
+    }
+    .s .s .s h1 {
+        font-size: 1.8rem;
+    }
+    .s .s .s .s h1 {
+        font-size: 1.5rem;
+    }
+    a {
+        color : #007585;
+    }
+    a:link,
+    a:active,
+    a:visited {
+        text-decoration: none;
+    }
+    a:hover {
+        color: #096E53;
+    }
+    
+    /* section (section, nav, aside, article - AKA html 5 'sectioning content') */
+    .s {
+        position: relative;
+        overflow: auto;
+        box-sizing: border-box;
+    }
+    /* content of a section */
+    .c {
+        position: relative;
+    }
+}
+@media all and (min-width: 20em) {
+/* 20 x 1.6 = 320px */
+
+}
+@media all and (min-width: 64em) {
+/* 60 x 1.6 = 1024px */
+    body {
+        font-size: 1.5rem;
+    }
+    .s h1 {
+        font-weight: normal;
+        font-size: 3rem;
+        line-height: 1.1;
+    }
+    .s .s h1 {
+        font-size: 2rem;
+    }
+    .s .s .s h1 {
+        font-size: 1.8rem;
+    }
+    .s .s .s .s h1 {
+        font-size: 1.5rem;
+    }
+}
+@media all and (min-width: 110em) {
+/* 110 x 1.6 = 1760px */
+    body {
+        font-size: 1.6rem;
+    }
+}
+
+/******************************************************************************/
+/******************************************************************************/
+
+/* START root */
+@media all and (min-width: 0) {
+    body > div {
+        padding: 3rem;
+    }
+}
+@media all and (min-width: 20em) {
+/* 20 x 1.6 = 320px */
+
+}
+@media all and (min-width: 30em) {
+/* 30 x 1.6 = 480px */    
+    body > div {
+        padding: 4rem;
+    }
+
+}
+@media all and (min-width: 48em) {
+/* 48 x 1.6 = 720px */	
+
+}
+@media all and (min-width: 64em) {
+/* 60 x 1.6 = 1024px */
+    body > div {
+        margin: auto;
+        width: 90rem;
+        padding: 6rem;
+    }
+}
+@media all and (min-width: 80em) {
+/* 80 x 1.6 = 1280px */
+    body > div {
+        width: 110rem;
+    }
+}
+@media all and (min-width: 110em) {
+/* 110 x 1.6 = 1760px */
+    body > div {
+        width: 130rem;
+    }
+}
+/* END root */
+
+/******************************************************************************/
+/******************************************************************************/

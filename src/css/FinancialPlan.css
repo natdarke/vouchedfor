@@ -1,0 +1,35 @@
+@media all and (min-width: 0) {
+
+}
+@media all and (min-width: 20em) {
+/* 20 x 1.6 = 320px */
+
+}
+@media all and (min-width: 30em) {
+/* 30 x 1.6 = 480px */    
+
+
+}
+@media all and (min-width: 48em) {
+/* 48 x 1.6 = 720px */	
+    .s.financial-plan > .s {
+        width: 48%;
+        float: left;
+        margin-right: 4%;
+    }
+    .s.financial-plan > .s:last-child {
+        margin-right: 0;
+    }
+}
+@media all and (min-width: 64em) {
+/* 60 x 1.6 = 1024px */
+
+}
+@media all and (min-width: 80em) {
+/* 80 x 1.6 = 1280px */
+
+}
+@media all and (min-width: 110em) {
+/* 110 x 1.6 = 1760px */
+
+}

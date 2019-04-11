@@ -1,0 +1,62 @@
+section.income-and-spend {
+    border: 1px solid #04586B;
+}
+header.c.income-and-spend {
+    background: #04586B;
+    color: #fff;
+    padding: 1rem;
+    margin: 0 0 2rem 0;
+}
+header.c.income-and-spend h1 {
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.c.income-and-spend.form {
+   margin: 2rem;
+}
+.c.income-and-spend.form form > div {
+    margin: 2rem 0;
+}
+.c.income-and-spend.form form > div:last-child {
+    margin: 0;
+}
+
+.c.income-and-spend.form h2 {
+    color: #096E53;
+    font-size: 1.5rem;
+    margin-top: 0;
+}
+
+.c.income-and-spend.form fieldset {
+    margin: 1rem 0 0 0;
+}
+
+
+.c.income-and-spend.form legend,
+.c.income-and-spend.form label span {
+    display: none;
+}
+.c.income-and-spend.form label {
+    display: block;
+    float: left;
+    margin-right: 1rem;
+    font-size: 1.3rem;
+}
+.c.income-and-spend.form label input {
+    display: block;
+    line-height: 2;
+    border: 1px solid #04586B;
+    border-radius: 5px;
+    color: #999;
+    padding: 0 .5rem;
+    box-sizing: border-box;
+}
+.c.income-and-spend.form label.amount input {
+    width: 15rem;
+}
+.c.income-and-spend.form label.from input,
+.c.income-and-spend.form label.to input {
+    width: 7rem;
+}
