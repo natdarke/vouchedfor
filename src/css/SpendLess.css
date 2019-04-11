@@ -25,22 +25,25 @@ header.c.spend-less h1 {
   margin: 2rem;
 }
 .c.spend-less.form .range {
-  margin: 2rem 0;
-  overflow: hidden;
+  padding: 1.5rem 0;
+  overflow: auto;
 }
 .c.spend-less.form .range > label {
   float: left;
-  width: 30%;
+  width: 35%;
   font-weight: bold;
 }
 .c.spend-less.form .range > div {
   position: relative;
   float: left;
-  width: 70%;
+  width: 65%;
 }
 .c.spend-less.form output {
-  margin: 2rem 0;
+  padding: 2.5rem 0 3.5rem 0;
   font-weight: bold;
+  float: left;
+  text-align: center;
+  width: 100%;
 }
 .c.spend-less.form output span {
   color: #69B800;
