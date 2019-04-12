@@ -128,12 +128,10 @@ header.c.spend-less h1 {
   }
   .c.spend-less.feedback a.answer.yes {
     background-position:  -.8rem -2.5rem;
-
   }
   .c.spend-less.feedback a.answer.no {
     background-position:  -11.7rem -2.5rem;
   }
-
   @media all and (min-width: 64em) {
     /* 60 x 1.6 = 1024px */
     section.spend-less {

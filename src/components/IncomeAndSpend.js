@@ -3,46 +3,6 @@ import '../css/IncomeAndSpend.css';
 import FieldSet from './FieldSet';
 
 class IncomeAndSpend extends Component {
-
-  constructor(){
-    super();
-    this.state = {
-      userData: {
-        incomes: [
-          {
-            amount: 45300,
-            from_age: 30,
-            to_age: 67,
-            frequency: 'annual',
-            name: 'Annual salary'
-          }
-        ],
-        expenditures: [
-          {
-            amount: 1199,
-            from_age: 30,
-            to_age: 65,
-            frequency: 'monthly',
-            name: 'Mortgage'
-          },
-          {
-            amount: 1199,
-            from_age: 30,
-            to_age: 65,
-            frequency: 'monthly',
-            name: 'Bills'
-          },
-          {
-            amount: 1199,
-            from_age: 30,
-            to_age: 65,
-            frequency: 'monthly',
-            name: 'General spending'
-          }
-        ]
-      }
-    }
-  }
   render() {
     return (
       <section className="s income-and-spend">
@@ -53,13 +13,13 @@ class IncomeAndSpend extends Component {
           <form>
             <div>
               <h2>Annual income</h2>
-              {this.state.userData.incomes.map(
+              {this.props.incomes.map(
                   item => <FieldSet {...item}/>
               )}
             </div>
             <div>
               <h2>Monthly spending</h2>
-              {this.state.userData.expenditures.map(
+              {this.props.expenditures.map(
                   item => <FieldSet {...item}/>
               )}
             </div>

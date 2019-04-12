@@ -3,24 +3,6 @@ import '../css/SpendLess.css';
 import Range from './Range.js';
 
 class SpendLess extends Component {
-  constructor(){
-    super();
-    this.state = {
-      income: 10000,
-      mortgage : 200,
-      bills: 400,
-      general: 300,
-      saving: 0
-    }
-  }
-
-  makeChangeHandler = key => event => {
-    this.setState({
-      [key] : event.target.value,
-      saving : this.state.income - this.state.mortgage - this.state.bills - this.state.general
-    });
-  }
-
   render() {
     return (
       <section className="s spend-less">
@@ -33,15 +15,15 @@ class SpendLess extends Component {
         <div className="c spend-less user">
           <form>
             <Range name='mortgage' label='Mortgage'
-              value={this.state.mortgage} min='100' max='300' 
-              changeHandler={this.makeChangeHandler('mortgage')} />
+              value={this.props.mortgage} min='0' max='1500' 
+              changeHandler={this.props.makeChangeHandler('mortgage')} />
             <Range name='bills' label='Bills'
-              value={this.state.bills} min='200' max='500' 
-              changeHandler={this.makeChangeHandler('bills')} />
+              value={this.props.bills} min='0' max='1500' 
+              changeHandler={this.props.makeChangeHandler('bills')} />
             <Range name='general' label='General Spending'
-              value={this.state.general} min='0' max='1000' 
-              changeHandler={this.makeChangeHandler('general')} />
-            <output>This means you're saving <span>£{this.state.saving}</span> per month</output>
+              value={this.props.general} min='0' max='1500' 
+              changeHandler={this.props.makeChangeHandler('general')} />
+            <output>This means you're saving <span>£{this.props.saving}</span> per month</output>
           </form>
         </div>
         <div className="c spend-less link">
