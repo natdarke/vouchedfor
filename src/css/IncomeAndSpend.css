@@ -1,5 +1,7 @@
 section.income-and-spend {
     border: 1px solid #04586B;
+    margin-bottom: 2rem;
+    min-height: 49rem;
 }
 header.c.income-and-spend {
     background: #04586B;
@@ -26,13 +28,12 @@ header.c.income-and-spend h1 {
 .c.income-and-spend.user h2 {
     color: #096E53;
     font-size: 1.5rem;
-    margin-top: 0;
+    margin: 0;
 }
 
 .c.income-and-spend.user fieldset {
     margin: 1rem 0 0 0;
 }
-
 
 .c.income-and-spend.user legend,
 .c.income-and-spend.user label span {
@@ -41,7 +42,6 @@ header.c.income-and-spend h1 {
 .c.income-and-spend.user label {
     display: block;
     float: left;
-    margin-right: 1rem;
     font-size: 1.3rem;
 }
 .c.income-and-spend.user label input {
@@ -52,11 +52,45 @@ header.c.income-and-spend h1 {
     color: #999;
     padding: 0 .5rem;
     box-sizing: border-box;
+    width: 100%;
 }
-.c.income-and-spend.user label.amount input {
-    width: 15rem;
+.c.income-and-spend.user label.amount {
+    width: 100%;
 }
-.c.income-and-spend.user label.from input,
-.c.income-and-spend.user label.to input {
-    width: 7rem;
+.c.income-and-spend.user label.from,
+.c.income-and-spend.user label.to {
+    width: 47.5%;
+}
+.c.income-and-spend.user label.from {
+    margin-right: 5%;
+    clear: left;
+}
+
+
+@media all and (min-width: 30em) {
+/* 30 x 1.6 = 480px */   
+    .c.income-and-spend.user label.amount {
+        width: 50%;
+        margin-right: 5%;
+    }
+    .c.income-and-spend.user label.from,
+    .c.income-and-spend.user label.to {
+        width: 20%;
+    } 
+    .c.income-and-spend.user label.from {
+        clear: none;
+    }
+}
+
+@media all and (min-width: 64em) {
+    /* 60 x 1.6 = 1024px */
+    section.income-and-spend {
+        min-height: 51rem;
+    }
+}
+@media all and (min-width: 80em) {
+/* 80 x 1.6 = 1280px */
+    section.income-and-spend {
+        min-height: 49rem;
+    }
 }
