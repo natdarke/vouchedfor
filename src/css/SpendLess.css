@@ -21,37 +21,37 @@ header.c.spend-less h1 {
 .c.spend-less.intro.text p {
   margin: 0;
 }
-.c.spend-less.form {
+.c.spend-less.user {
   margin: 2rem;
 }
-.c.spend-less.form .range {
+.c.spend-less.user .range {
   padding: 1.5rem 0;
   overflow: auto;
 }
-.c.spend-less.form .range > label {
+.c.spend-less.user .range > label {
   float: left;
   width: 35%;
   font-weight: bold;
 }
-.c.spend-less.form .range > div {
+.c.spend-less.user .range > div {
   position: relative;
   float: left;
   width: 65%;
 }
-.c.spend-less.form output {
+.c.spend-less.user output {
   padding: 2.5rem 0 3.5rem 0;
   font-weight: bold;
   float: left;
   text-align: center;
   width: 100%;
 }
-.c.spend-less.form output span {
+.c.spend-less.user output span {
   color: #69B800;
 }
 
 
 
-.c.spend-less.form .range input[type="range"] {
+.c.spend-less.user .range input[type="range"] {
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
     width: 100%;
@@ -64,12 +64,12 @@ header.c.spend-less h1 {
     transition: opacity .2s;
   }
   
-  .c.spend-less.form .range input[type="range"]:hover {
+  .c.spend-less.user .range input[type="range"]:hover {
     opacity: 1;
   }
   
   /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-  .c.spend-less.form .range input[type="range"]::-webkit-slider-thumb {
+  .c.spend-less.user .range input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 18px;
@@ -80,7 +80,7 @@ header.c.spend-less h1 {
     cursor: pointer;
   }
   
-  .c.spend-less.form .range input[type="range"]::-moz-range-thumb {
+  .c.spend-less.user .range input[type="range"]::-moz-range-thumb {
     width: 18px;
     height: 18px;
     border-radius: 18px;

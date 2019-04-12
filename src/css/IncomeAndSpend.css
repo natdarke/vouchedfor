@@ -13,38 +13,38 @@ header.c.income-and-spend h1 {
     font-weight: bold;
     text-transform: uppercase;
 }
-.c.income-and-spend.form {
+.c.income-and-spend.user {
    margin: 2rem;
 }
-.c.income-and-spend.form form > div {
+.c.income-and-spend.user form > div {
     margin: 2rem 0;
 }
-.c.income-and-spend.form form > div:last-child {
+.c.income-and-spend.user form > div:last-child {
     margin: 0;
 }
 
-.c.income-and-spend.form h2 {
+.c.income-and-spend.user h2 {
     color: #096E53;
     font-size: 1.5rem;
     margin-top: 0;
 }
 
-.c.income-and-spend.form fieldset {
+.c.income-and-spend.user fieldset {
     margin: 1rem 0 0 0;
 }
 
 
-.c.income-and-spend.form legend,
-.c.income-and-spend.form label span {
+.c.income-and-spend.user legend,
+.c.income-and-spend.user label span {
     display: none;
 }
-.c.income-and-spend.form label {
+.c.income-and-spend.user label {
     display: block;
     float: left;
     margin-right: 1rem;
     font-size: 1.3rem;
 }
-.c.income-and-spend.form label input {
+.c.income-and-spend.user label input {
     display: block;
     line-height: 2;
     border: 1px solid #04586B;
@@ -53,10 +53,10 @@ header.c.income-and-spend h1 {
     padding: 0 .5rem;
     box-sizing: border-box;
 }
-.c.income-and-spend.form label.amount input {
+.c.income-and-spend.user label.amount input {
     width: 15rem;
 }
-.c.income-and-spend.form label.from input,
-.c.income-and-spend.form label.to input {
+.c.income-and-spend.user label.from input,
+.c.income-and-spend.user label.to input {
     width: 7rem;
 }

@@ -8,7 +8,7 @@ class IncomeAndSpend extends Component {
         <header className="c income-and-spend">
           <h1>Your Income & Spend</h1>
         </header>
-        <div className="c income-and-spend form">
+        <div className="c income-and-spend user">
           <form>
             <div>
               <h2>Annual income</h2>

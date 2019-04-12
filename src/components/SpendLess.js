@@ -30,7 +30,7 @@ class SpendLess extends Component {
         <div className="c spend-less intro text">
           <p>Try reducing your monthly spend to see how your forecast could improve</p>
         </div>
-        <div className="c spend-less form">
+        <div className="c spend-less user">
           <form>
             <Range name='mortgage' label='Mortgage'
               value={this.state.mortgage} min='100' max='300' 
