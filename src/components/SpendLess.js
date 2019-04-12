@@ -30,9 +30,9 @@ class SpendLess extends Component {
           <a href="http://www.google.com?q=find+ways+to+save" target="_blank" rel="noopener noreferrer">Find ways to save</a>
         </div>
         <div className="c spend-less feedback">
-          <span class="question">Was this helpful?</span>
-          <a href="/" class="answer yes"><span>Yes</span></a>
-          <a href="/" class="answer no"><span>No</span></a>
+          <span className="question">Was this helpful?</span>
+          <a href="/" className="answer yes"><span>Yes</span></a>
+          <a href="/" className="answer no"><span>No</span></a>
         </div>
       </section>
     );

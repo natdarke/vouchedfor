@@ -2,8 +2,8 @@ import React from 'react';
 
 function Range(props) {
     return (
-        <div class="range">
-            <label for={`${props.name}-range`}>{props.label}</label>
+        <div className="range">
+            <label htmlFor={`${props.name}-range`}>{props.label}</label>
             <div>
                 <span className="sliderValue" style={
                     sliderValueStyles(
