@@ -1,7 +1,48 @@
 import React, { Component } from 'react';
 import '../css/IncomeAndSpend.css';
+import FieldSet from './FieldSet';
 
 class IncomeAndSpend extends Component {
+
+  constructor(){
+    super();
+    this.state = {
+      userData: {
+        incomes: [
+          {
+            amount: 45300,
+            from_age: 30,
+            to_age: 67,
+            frequency: 'annual',
+            name: 'Annual salary'
+          }
+        ],
+        expenditures: [
+          {
+            amount: 1199,
+            from_age: 30,
+            to_age: 65,
+            frequency: 'monthly',
+            name: 'Mortgage'
+          },
+          {
+            amount: 1199,
+            from_age: 30,
+            to_age: 65,
+            frequency: 'monthly',
+            name: 'Bills'
+          },
+          {
+            amount: 1199,
+            from_age: 30,
+            to_age: 65,
+            frequency: 'monthly',
+            name: 'General spending'
+          }
+        ]
+      }
+    }
+  }
   render() {
     return (
       <section className="s income-and-spend">
@@ -12,33 +53,15 @@ class IncomeAndSpend extends Component {
           <form>
             <div>
               <h2>Annual income</h2>
-              <fieldset>
-                <legend>Annual Salary</legend>
-                <label className="amount">Annual Salary <span>Amount</span><input type="text"/></label>
-                <label className="from">From Age<input type="text"/></label>
-                <label className="to">To Age<input type="text"/></label>
-              </fieldset>
+              {this.state.userData.incomes.map(
+                  item => <FieldSet {...item}/>
+              )}
             </div>
             <div>
               <h2>Monthly spending</h2>
-              <fieldset>
-                <legend>Mortgage</legend>
-                <label className="amount">Mortgage <span>Amount</span><input type="text"/></label>
-                <label className="from">From Age<input type="text"/></label>
-                <label className="to">To Age<input type="text"/></label>
-              </fieldset>
-              <fieldset>
-                <legend>Bills</legend>
-                <label className="amount">Bills Amount<input type="text"/></label>
-                <label className="from">From Age<input type="text"/></label>
-                <label className="to">To Age<input type="text"/></label>
-              </fieldset>
-              <fieldset>
-                <legend>General spending</legend>
-                <label className="amount">General spending <span>Amount</span><input type="text"/></label>
-                <label className="from">From Age<input type="text"/></label>
-                <label className="to">To Age<input type="text"/></label>
-              </fieldset>
+              {this.state.userData.expenditures.map(
+                  item => <FieldSet {...item}/>
+              )}
             </div>
           </form>
         </div>
