@@ -45,12 +45,12 @@ class SpendLess extends Component {
           </form>
         </div>
         <div className="c spend-less link">
-          <a href="http://www.google.com?q=find+ways+to+save" target="_blank">Find ways to save</a>
+          <a href="http://www.google.com?q=find+ways+to+save" target="_blank" rel="noopener noreferrer">Find ways to save</a>
         </div>
         <div className="c spend-less feedback">
-          <a href="#" class="question">Was this helpful?</a>
-          <a href="#" class="answer yes"><span>Yes</span></a>
-          <a href="#" class="answer no"><span>No</span></a>
+          <span class="question">Was this helpful?</span>
+          <a href="/" class="answer yes"><span>Yes</span></a>
+          <a href="/" class="answer no"><span>No</span></a>
         </div>
       </section>
     );
