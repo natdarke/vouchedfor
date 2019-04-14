@@ -54,47 +54,30 @@ class FinancialPlan extends Component {
   }
 
   setExpenditures = event => {
-    const { value, name } = event.target;
-    this.setState(
-      (state) => {
-        let { expenditures } = {...state};
-        expenditures = expenditures.map(
-          (item) => {
-            const fieldSetName = name.split('__')[0];
-            const inputName = name.split('__')[1];
-            if(item.name.toUpperCase() === fieldSetName.toUpperCase()) {
-              item[inputName] = value;
-            }
-            return item;
-          }
-        )
-        return {
-          expenditures,
-          saving : this.calculateSaving()
-        }
-      },
-      () => {
-        sessionStorage.setItem("financialPlanState", JSON.stringify(this.state));
-        // change to use DOM onBeforeUnload event, not setState
-      }
-    );
+    this.updateState('expenditures', event);
   }
 
   setIncomes = event => {
-    const { value, name } = event.target;
+    this.updateState('incomes', event);
+  }
+
+  updateState = (stateKey, event) => {
+    const { value: fieldValue, name: fieldName } = event.target;
     this.setState(
       (state) => {
-        let { incomes } = {...state};
-        incomes = incomes.map(
+        let stateValue = [...state[stateKey]];
+        stateValue = stateValue.map(
           (item) => {
-            if(item.name.toUpperCase() === name.toUpperCase()) {
-              item.amount = value;
+            const fieldSetName = fieldName.split('__')[0];
+            const inputName = fieldName.split('__')[1];
+            if(item.name.toUpperCase() === fieldSetName.toUpperCase()) {
+              item[inputName] = fieldValue;
             }
             return item;
           }
         )
         return {
-          incomes,
+          [stateKey] : stateValue,
           saving : this.calculateSaving()
         }
       },
