@@ -12,15 +12,9 @@ class IncomeAndSpend extends Component {
         <div className="c income-and-spend user">
           <form>
             <div>
-              <h2>Annual income</h2>
-              {this.props.incomes.map(
-                  item => <FieldSet {...item}/>
-              )}
-            </div>
-            <div>
               <h2>Monthly spending</h2>
-              {this.props.expenditures.map(
-                  item => <FieldSet {...item}/>
+              {this.props.root.state.expenditures.map(
+                  (item, index) => <FieldSet {...item} key={index} onChangeHandler={this.props.root.setExpenditures}/>
               )}
             </div>
           </form>

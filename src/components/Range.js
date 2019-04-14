@@ -16,7 +16,7 @@ function Range(props) {
                     £{props.value}
                 </span>
                 <span>
-                    <input type="range" min={props.min} max={props.max} id={`${props.name}-range`} value={props.value} onChange={props.changeHandler}/>
+                    <input type="range" min={props.min} max={props.max} id={`${props.name}-range`} name={props.name} value={props.value} onChange={props.changeHandler}/>
                 </span>
             </div>
         </div>

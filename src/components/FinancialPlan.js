@@ -40,27 +40,42 @@ class FinancialPlan extends Component {
             name: 'General spending'
           }
         ],
-        income: 45300,
-        mortgage : 1199,
-        bills: 1199,
-        general: 1199,
-        saving: 0
+        saving: this.calculateSaving()
     }
   }
-  makeChangeHandler = key => event => {
-    this.setState({
-      [key] : event.target.value,
-      saving : this.state.incomes[0].amount - this.state.mortgage - this.state.bills - this.state.general
+
+  setExpenditures = event => {
+    const { value, name } = event.target;
+    this.setState((state) => {
+      let { expenditures } = {...state};
+      expenditures = expenditures.map(
+        (item) => {
+          if(item.name.toUpperCase() === name.toUpperCase()) {
+            item.amount = value;
+          }
+          return item;
+        }
+      )
+      return {
+        expenditures
+      }
     });
+    this.setState({
+      saving : this.calculateSaving()
+    })
   }
+  calculateSaving(){
+    return 0;
+  }
+
   render() {
     return (
       <section className="s financial-plan">
         <header className="c financial-plan">
           <h1>Your Financial Plan</h1>
         </header>
-        <IncomeAndSpend {...this.state}/>
-        <SpendLess {...this.state} makeChangeHandler={this.makeChangeHandler}/>
+        <IncomeAndSpend root={this}/>
+        <SpendLess root={this}/>
       </section>
     );
   }

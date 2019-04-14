@@ -15,15 +15,15 @@ class SpendLess extends Component {
         <div className="c spend-less user">
           <form>
             <Range name='mortgage' label='Mortgage'
-              value={this.props.mortgage} min='0' max='1500' 
-              changeHandler={this.props.makeChangeHandler('mortgage')} />
+              value={this.props.root.state.expenditures[0].amount} min='0' max='1500' 
+              changeHandler={this.props.root.setExpenditures} />
             <Range name='bills' label='Bills'
-              value={this.props.bills} min='0' max='1500' 
-              changeHandler={this.props.makeChangeHandler('bills')} />
-            <Range name='general' label='General Spending'
-              value={this.props.general} min='0' max='1500' 
-              changeHandler={this.props.makeChangeHandler('general')} />
-            <output>This means you're saving <span>£{this.props.saving}</span> per month</output>
+              value={this.props.root.state.expenditures[1].amount} min='0' max='1500' 
+              changeHandler={this.props.root.setExpenditures} />
+            <Range name='general spending' label='General Spending'
+              value={this.props.root.state.expenditures[2].amount} min='0' max='1500' 
+              changeHandler={this.props.root.setExpenditures} />
+            <output>This means you're saving <span>£{this.props.root.state.saving}</span> per month</output>
           </form>
         </div>
         <div className="c spend-less link">
