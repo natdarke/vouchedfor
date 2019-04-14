@@ -13,14 +13,14 @@ function  IncomeAndSpend(props) {
         <form>
         <div>
             <h2>Annual</h2>
-            {props.root.state.incomes.map(
-                (item, index) => <FieldSet {...item} key={index} onChangeHandler={props.root.setIncomes}/>
+            {props.incomes.map(
+                (income, index) => <FieldSet key={index} {...income} onChangeHandler={props.updateState('incomes')}/>
             )}
           </div>
           <div>
             <h2>Monthly spending</h2>
-            {props.root.state.expenditures.map(
-                (item, index) => <FieldSet {...item} key={index} onChangeHandler={props.root.setExpenditures}/>
+            {props.expenditures.map(
+                (expenditure, index) => <FieldSet key={index} {...expenditure} onChangeHandler={props.updateState('expenditures')}/>
             )}
           </div>
         </form>

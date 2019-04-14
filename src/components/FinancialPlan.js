@@ -53,39 +53,32 @@ class FinancialPlan extends Component {
     }
   }
 
-  setExpenditures = event => {
-    this.updateState('expenditures', event);
-  }
-
-  setIncomes = event => {
-    this.updateState('incomes', event);
-  }
-
-  updateState = (stateKey, event) => {
-    const { value: fieldValue, name: fieldName } = event.target;
-    this.setState(
-      (state) => {
-        let stateValue = [...state[stateKey]];
-        stateValue = stateValue.map(
-          (item) => {
-            const fieldSetName = fieldName.split('__')[0];
-            const inputName = fieldName.split('__')[1];
-            if(item.name.toUpperCase() === fieldSetName.toUpperCase()) {
-              item[inputName] = fieldValue;
+  // higher order function
+  updateState = stateKey => event => {
+      const { value: fieldValue, name: fieldName } = event.target;
+      this.setState(
+        (state) => {
+          let stateValue = [...state[stateKey]];
+          stateValue = stateValue.map(
+            (item) => {
+              const fieldSetName = fieldName.split('__')[0];
+              const inputName = fieldName.split('__')[1];
+              if(item.name.toUpperCase() === fieldSetName.toUpperCase()) {
+                item[inputName] = fieldValue;
+              }
+              return item;
             }
-            return item;
+          )
+          return {
+            [stateKey] : stateValue,
+            saving : this.calculateSaving()
           }
-        )
-        return {
-          [stateKey] : stateValue,
-          saving : this.calculateSaving()
+        },
+        () => {
+          sessionStorage.setItem("financialPlanState", JSON.stringify(this.state));
+          // change to use DOM onBeforeUnload event, not setState
         }
-      },
-      () => {
-        sessionStorage.setItem("financialPlanState", JSON.stringify(this.state));
-        // change to use DOM onBeforeUnload event, not setState
-      }
-    );
+      );
   }
 
   calculateSaving(){
@@ -98,8 +91,8 @@ class FinancialPlan extends Component {
         <header className="c financial-plan">
           <h1>Your Financial Plan</h1>
         </header>
-        <IncomeAndSpend root={this} />
-        <SpendLess root={this}/>
+        <IncomeAndSpend {...this.state} updateState={this.updateState} />
+        <SpendLess {...this.state} updateState={this.updateState}/>
       </section>
     );
   }

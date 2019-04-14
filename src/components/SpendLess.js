@@ -13,16 +13,11 @@ function SpendLess(props) {
       </div>
       <div className="c spend-less user">
         <form>
-          <Range name='mortgage' label='Mortgage'
-            value={props.root.state.expenditures[0].amount} min='0' max='1500' 
-            changeHandler={props.root.setExpenditures} />
-          <Range name='bills' label='Bills'
-            value={props.root.state.expenditures[1].amount} min='0' max='1500' 
-            changeHandler={props.root.setExpenditures} />
-          <Range name='general spending' label='General Spending'
-            value={props.root.state.expenditures[2].amount} min='0' max='1500' 
-            changeHandler={props.root.setExpenditures} />
-          <output>This means you're saving <span>£{props.root.state.saving}</span> per month</output>
+          {props.expenditures.map(
+                (expenditure, index) => <Range key={index} {...expenditure} min='0' max='1500' 
+                changeHandler={props.updateState('expenditures')} />
+            )} 
+          <output>This means you're saving <span>£{props.saving}</span> per month</output>
         </form>
       </div>
       <div className="c spend-less link">

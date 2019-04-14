@@ -3,20 +3,20 @@ import React from 'react';
 function Range(props) {
     return (
         <div className="range">
-            <label htmlFor={`${props.name}__amount`}>{props.label}</label>
+            <label htmlFor={`${props.name}__amount`}>{props.name}</label>
             <div>
                 <span className="sliderValue" style={
                     sliderValueStyles(
-                        props.value,
+                        props.amount,
                         props.min,
                         props.max,
                         1.6
                     )
                 }>
-                    £{props.value}
+                    £{props.amount}
                 </span>
                 <span>
-                    <input type="range" min={props.min} max={props.max} id={`${props.name}__amount`} name={`${props.name}__amount`} value={props.value} onChange={props.changeHandler}/>
+                    <input type="range" min={props.min} max={props.max} id={`${props.name}__amount`} name={`${props.name}__amount`} value={props.amount} onChange={props.changeHandler}/>
                 </span>
             </div>
         </div>
