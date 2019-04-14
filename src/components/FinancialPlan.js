@@ -60,8 +60,10 @@ class FinancialPlan extends Component {
         let { expenditures } = {...state};
         expenditures = expenditures.map(
           (item) => {
-            if(item.name.toUpperCase() === name.toUpperCase()) {
-              item.amount = value;
+            const fieldSetName = name.split('__')[0];
+            const inputName = name.split('__')[1];
+            if(item.name.toUpperCase() === fieldSetName.toUpperCase()) {
+              item[inputName] = value;
             }
             return item;
           }
@@ -73,10 +75,36 @@ class FinancialPlan extends Component {
       },
       () => {
         sessionStorage.setItem("financialPlanState", JSON.stringify(this.state));
+        // change to use DOM onBeforeUnload event, not setState
       }
     );
-    
   }
+
+  setIncomes = event => {
+    const { value, name } = event.target;
+    this.setState(
+      (state) => {
+        let { incomes } = {...state};
+        incomes = incomes.map(
+          (item) => {
+            if(item.name.toUpperCase() === name.toUpperCase()) {
+              item.amount = value;
+            }
+            return item;
+          }
+        )
+        return {
+          incomes,
+          saving : this.calculateSaving()
+        }
+      },
+      () => {
+        sessionStorage.setItem("financialPlanState", JSON.stringify(this.state));
+        // change to use DOM onBeforeUnload event, not setState
+      }
+    );
+  }
+
   calculateSaving(){
     return 0;
   }
