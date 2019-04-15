@@ -17,16 +17,15 @@ header.c.spend-less h1 {
 
 .c.spend-less.intro.text {
   margin: 2rem;
-  overflow: auto;
 }
 .c.spend-less.intro.text p {
   margin: 0;
 }
 .c.spend-less.user {
-  margin: 2rem;
+  margin: 2rem 0;
 }
 .c.spend-less.user .range {
-  padding: 1.5rem 0;
+  padding: 1.5rem 2rem;
   overflow: auto;
 }
 .c.spend-less.user .range > label {
