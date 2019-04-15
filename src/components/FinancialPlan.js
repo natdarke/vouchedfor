@@ -40,7 +40,7 @@ class FinancialPlan extends Component {
           name: 'General spending'
         }
       ],
-      saving: this.calculateSaving()
+      saving : 0
     }
     if (
       typeof(Storage) !== "undefined"
@@ -50,6 +50,7 @@ class FinancialPlan extends Component {
     }
     else {
       this.state = initialState;
+      this.state.initialExpenditures = this.state.expenditures.map(a => ({...a})); // deep copy of array
     }
   }
 
@@ -76,13 +77,16 @@ class FinancialPlan extends Component {
         },
         () => {
           sessionStorage.setItem("financialPlanState", JSON.stringify(this.state));
-          // change to use DOM onBeforeUnload event, not setState
+          // change to use DOM onBeforeUnload event, not setState,
         }
       );
   }
 
   calculateSaving(){
-    return 0;
+    const initialExp = addExpenditures(this.state.initialExpenditures);
+    const exp = addExpenditures(this.state.expenditures);
+    return initialExp - exp;
+
   }
 
   render() {
@@ -97,5 +101,10 @@ class FinancialPlan extends Component {
     );
   }
 }
+
+function addExpenditures(arr){
+  return arr.map(item => parseInt(item.amount)).reduce((total, current) => total + current);
+}
+
 
 export default FinancialPlan;
