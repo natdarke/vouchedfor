@@ -13,13 +13,13 @@ function  IncomeAndSpend(props) {
         <form>
         <div>
             <h2>Annual</h2>
-            {props.incomes.map(
+            {props.incomes && props.incomes.map(
                 (income, index) => <FieldSet key={index} {...income} onChangeHandler={props.updateState('incomes')}/>
             )}
           </div>
           <div>
             <h2>Monthly spending</h2>
-            {props.expenditures.map(
+            {props.expenditures && props.expenditures.map(
                 (expenditure, index) => <FieldSet key={index} {...expenditure} onChangeHandler={props.updateState('expenditures')}/>
             )}
           </div>

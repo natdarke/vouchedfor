@@ -7,51 +7,39 @@ class FinancialPlan extends Component {
 
   constructor(){
     super();
-    const initialState = {
-      incomes: [
-        {
-          amount: 45300,
-          from_age: 30,
-          to_age: 67,
-          frequency: 'annual',
-          name: 'Annual salary'
-        }
-      ],
-      expenditures: [
-        {
-          amount: 1199,
-          from_age: 30,
-          to_age: 65,
-          frequency: 'monthly',
-          name: 'Mortgage'
-        },
-        {
-          amount: 1199,
-          from_age: 30,
-          to_age: 65,
-          frequency: 'monthly',
-          name: 'Bills'
-        },
-        {
-          amount: 1199,
-          from_age: 30,
-          to_age: 65,
-          frequency: 'monthly',
-          name: 'General spending'
-        }
-      ],
-      saving : 0
-    }
+    this.state = {};
     if (
       typeof(Storage) !== "undefined"
       && typeof(sessionStorage.financialPlanState) !== "undefined"
     ) {
-      this.state = JSON.parse(sessionStorage.financialPlanState);
+      this.state =JSON.parse(sessionStorage.financialPlanState);
+      this.state.storedInLocal = true;
     }
-    else {
-      this.state = initialState;
-      this.state.initialExpenditures = this.state.expenditures.map(a => ({...a})); // deep copy of array
+    this.state.saving = 0;
+
+  }
+  componentDidMount(){
+    if (!this.state.storedInLocal) {
+      this.setStateFromDB('expenditures');
+      this.setStateFromDB('incomes');
     }
+  }
+
+  async setStateFromDB(path){
+    const response = await fetch(
+      `http://localhost:3001/${path}`, {
+        mode: 'cors',
+        headers: {
+          'Access-Control-Allow-Origin':'*'
+        }
+      }
+    );
+    const data = await response.json();
+    this.setState({
+      [path] : data,
+      ['initial' + path] : data.map(a => ({...a}))
+    });
+    return data;
   }
 
   // higher order function
@@ -83,10 +71,9 @@ class FinancialPlan extends Component {
   }
 
   calculateSaving(){
-    const initialExp = addExpenditures(this.state.initialExpenditures);
+    const initialExp = addExpenditures(this.state.initialexpenditures);
     const exp = addExpenditures(this.state.expenditures);
     return initialExp - exp;
-
   }
 
   render() {

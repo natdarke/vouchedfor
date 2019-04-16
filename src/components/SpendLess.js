@@ -13,7 +13,7 @@ function SpendLess(props) {
       </div>
       <div className="c spend-less user">
         <form>
-          {props.expenditures.map(
+          {props.expenditures && props.expenditures.map(
                 (expenditure, index) => <Range key={index} {...expenditure} min='0' max='1500' 
                 changeHandler={props.updateState('expenditures')} />
             )} 
