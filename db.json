@@ -1,0 +1,58 @@
+{
+  "incomes":[
+     {
+        "amount":"1000",
+        "from_age":30,
+        "to_age":67,
+        "frequency":"annual",
+        "name":"Annual salary"
+     }
+  ],
+  "expenditures":[
+     {
+        "amount":"611",
+        "from_age":30,
+        "to_age":65,
+        "frequency":"monthly",
+        "name":"Mortgage"
+     },
+     {
+        "amount":"699",
+        "from_age":30,
+        "to_age":65,
+        "frequency":"monthly",
+        "name":"Bills"
+     },
+     {
+        "amount":"700",
+        "from_age":30,
+        "to_age":65,
+        "frequency":"monthly",
+        "name":"General spending"
+     }
+  ],
+  "saving":1587,
+  "initialExpenditures":[
+     {
+        "amount":1199,
+        "from_age":30,
+        "to_age":65,
+        "frequency":"monthly",
+        "name":"Mortgage"
+     },
+     {
+        "amount":1199,
+        "from_age":30,
+        "to_age":65,
+        "frequency":"monthly",
+        "name":"Bills"
+     },
+     {
+        "amount":1199,
+        "from_age":30,
+        "to_age":65,
+        "frequency":"monthly",
+        "name":"General spending"
+     }
+  ]
+}
