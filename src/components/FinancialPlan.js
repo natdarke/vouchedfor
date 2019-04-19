@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../css/FinancialPlan.css';
 import IncomeAndSpend from './IncomeAndSpend.js';
 import SpendLess from './SpendLess.js';
+import FieldSet from './FieldSet';
 
 class FinancialPlan extends Component {
 
@@ -82,7 +83,20 @@ class FinancialPlan extends Component {
         <header className="c financial-plan">
           <h1>Your Financial Plan</h1>
         </header>
-        <IncomeAndSpend {...this.state} updateState={this.updateState} />
+        <IncomeAndSpend incomes={<FieldSet onChangeHandler={this.updateState('incomes')}/>}>
+          <div>
+            <h2>Annual</h2>
+            {this.state.incomes && this.state.incomes.map(
+                (income, index) => <FieldSet key={index} {...income} onChangeHandler={this.updateState('incomes')}/>
+            )}
+          </div>
+          <div>
+            <h2>Monthly spending</h2>
+            {this.state.expenditures && this.state.expenditures.map(
+                (expenditure, index) => <FieldSet key={index} {...expenditure} onChangeHandler={this.updateState('incomes')}/>
+            )}
+          </div>
+        </IncomeAndSpend>
         <SpendLess {...this.state} updateState={this.updateState}/>
       </section>
     );
