@@ -1,111 +1,24 @@
 import React, { Component } from 'react';
 import '../css/FinancialPlan.css';
-import IncomeAndSpend from './IncomeAndSpend.js';
-import SpendLess from './SpendLess.js';
-import FieldSet from './FieldSet';
+import IncomeAndSpend from './IncomeAndSpend';
+import SpendLess from './SpendLess';
+import FinancialPlanProvider from './FinancialPlanProvider';
 
 class FinancialPlan extends Component {
 
-  constructor(){
-    super();
-    this.state = {};
-    if (
-      typeof(Storage) !== "undefined"
-      && typeof(sessionStorage.financialPlanState) !== "undefined"
-    ) {
-      this.state =JSON.parse(sessionStorage.financialPlanState);
-      this.state.storedInLocal = true;
-    }
-    this.state.saving = 0;
-
-  }
-  componentDidMount(){
-    if (!this.state.storedInLocal) {
-      this.setStateFromDB('expenditures');
-      this.setStateFromDB('incomes');
-    }
-  }
-
-  async setStateFromDB(path){
-    const response = await fetch(
-      `http://localhost:3001/${path}`, {
-        mode: 'cors',
-        headers: {
-          'Access-Control-Allow-Origin':'*'
-        }
-      }
-    );
-    const data = await response.json();
-    this.setState({
-      [path] : data,
-      ['initial' + path] : data.map(a => ({...a}))
-    });
-    return data;
-  }
-
-  // higher order function
-  updateState = stateKey => event => {
-      const { value: fieldValue, name: fieldName } = event.target;
-      this.setState(
-        (state) => {
-          let stateValue = [...state[stateKey]];
-          stateValue = stateValue.map(
-            (item) => {
-              const fieldSetName = fieldName.split('__')[0];
-              const inputName = fieldName.split('__')[1];
-              if(item.name.toUpperCase() === fieldSetName.toUpperCase()) {
-                item[inputName] = fieldValue;
-              }
-              return item;
-            }
-          )
-          return {
-            [stateKey] : stateValue,
-            saving : this.calculateSaving()
-          }
-        },
-        () => {
-          sessionStorage.setItem("financialPlanState", JSON.stringify(this.state));
-          // change to use DOM onBeforeUnload event, not setState,
-        }
-      );
-  }
-
-  calculateSaving(){
-    const initialExp = addExpenditures(this.state.initialexpenditures);
-    const exp = addExpenditures(this.state.expenditures);
-    return initialExp - exp;
-  }
-
   render() {
     return (
-      <section className="s financial-plan">
-        <header className="c financial-plan">
-          <h1>Your Financial Plan</h1>
-        </header>
-        <IncomeAndSpend incomes={<FieldSet onChangeHandler={this.updateState('incomes')}/>}>
-          <div>
-            <h2>Annual</h2>
-            {this.state.incomes && this.state.incomes.map(
-                (income, index) => <FieldSet key={index} {...income} onChangeHandler={this.updateState('incomes')}/>
-            )}
-          </div>
-          <div>
-            <h2>Monthly spending</h2>
-            {this.state.expenditures && this.state.expenditures.map(
-                (expenditure, index) => <FieldSet key={index} {...expenditure} onChangeHandler={this.updateState('incomes')}/>
-            )}
-          </div>
-        </IncomeAndSpend>
-        <SpendLess {...this.state} updateState={this.updateState}/>
-      </section>
+      <FinancialPlanProvider>
+        <section className="s financial-plan">
+          <header className="c financial-plan">
+            <h1>Your Financial Plan</h1>
+          </header>
+          <IncomeAndSpend/>
+          <SpendLess/>
+        </section>
+      </FinancialPlanProvider>
     );
   }
 }
-
-function addExpenditures(arr){
-  return arr.map(item => parseInt(item.amount)).reduce((total, current) => total + current);
-}
-
 
 export default FinancialPlan;
